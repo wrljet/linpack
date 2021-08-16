@@ -21,6 +21,14 @@ jobs:
       dist: bionic
       env: MATRIX_EVAL="CC=clang"
 
+    - name: "Ubuntu 20.04 -- gcc 9.3.0"
+      dist: focal
+      env: MATRIX_EVAL="CC=gcc"
+
+    - name: "Ubuntu 20.04 -- clang 7.0.0"
+      dist: focal
+      env: MATRIX_EVAL="CC=clang"
+
 #
 before_install:
   - sudo apt-get install -y regina-rexx libregina3-dev
