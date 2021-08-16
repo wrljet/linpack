@@ -59,5 +59,6 @@ before_script:
 
 #
 script:
-  - make -j 2
+  - echo ${CC}
+  - CC=${CC} make -j 2
 
