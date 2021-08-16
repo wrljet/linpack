@@ -20,7 +20,7 @@ jobs:
       dist: bionic
       env: MATRIX_EVAL="CC=gcc"
 
-    - name: "Ubuntu 18.04 -- clang 7.0.0"
+    - name: "Ubuntu 18.04 -- Clang 7.0.0"
       os: linux
       dist: bionic
       env: MATRIX_EVAL="CC=clang"
@@ -30,12 +30,12 @@ jobs:
       dist: focal
       env: MATRIX_EVAL="CC=gcc"
 
-    - name: "Ubuntu 20.04 -- clang 11"
+    - name: "Ubuntu 20.04 -- Clang 11"
       os: linux
       dist: focal
       env: MATRIX_EVAL="CC=clang-11"
 
-    - name: "MacOS "
+    - name: "MacOS -- Homebrew Clang"
       os: osx
       osx_image: xcode12.5
       env: MATRIX_EVAL="CC=clang"
@@ -48,6 +48,7 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y regina-rexx libregina3-dev; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y binutils binutils-dev     ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew update                                       ; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew install wget autoconf automake cmake gsed    ; fi
   - eval "${MATRIX_EVAL}"
   - 'if [ "$TRAVIS_DIST"   = "focal" ]; then sudo apt install -y clang-11; fi'
 
