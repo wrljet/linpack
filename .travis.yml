@@ -25,14 +25,15 @@ jobs:
       dist: focal
       env: MATRIX_EVAL="CC=gcc"
 
-    - name: "Ubuntu 20.04 -- clang 7.0.0"
+    - name: "Ubuntu 20.04 -- clang 11
       dist: focal
-      env: MATRIX_EVAL="CC=clang"
+      env: MATRIX_EVAL="CC=clang-11"
 
 #
 before_install:
   - sudo apt-get install -y regina-rexx libregina3-dev
   - sudo apt-get install -y binutils binutils-dev
+  - test $TRAVIS_DIST = "focal" && sudo apt install -y clang-11
   - eval "${MATRIX_EVAL}"
 
 #
