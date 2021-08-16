@@ -1,31 +1,37 @@
 #
-os: linux
+#os: linux
 language: c
 
 #
 jobs:
   include:
     - name: "Ubuntu 16.04 -- gcc 5.4.0"
+      os: linux
       dist: xenial
       env: MATRIX_EVAL="CC=gcc"
 
     - name: "Ubuntu 16.04 -- clang 7.0.0"
+      os: linux
       dist: xenial
       env: MATRIX_EVAL="CC=clang"
 
     - name: "Ubuntu 18.04 -- gcc 7.5.0"
+      os: linux
       dist: bionic
       env: MATRIX_EVAL="CC=gcc"
 
     - name: "Ubuntu 18.04 -- clang 7.0.0"
+      os: linux
       dist: bionic
       env: MATRIX_EVAL="CC=clang"
 
     - name: "Ubuntu 20.04 -- gcc 9.3.0"
+      os: linux
       dist: focal
       env: MATRIX_EVAL="CC=gcc"
 
     - name: "Ubuntu 20.04 -- clang 11"
+      os: linux
       dist: focal
       env: MATRIX_EVAL="CC=clang-11"
 
