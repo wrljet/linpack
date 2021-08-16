@@ -43,14 +43,14 @@ jobs:
 #
 before_install:
   - echo $TRAVIS_OS_NAME
+  - eval "${MATRIX_EVAL}"
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo $TRAVIS_DIST                                 ; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then echo $TRAVIS_OSX_IMAGE                            ; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y regina-rexx libregina3-dev; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y binutils binutils-dev     ; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew update                                       ; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew install wget autoconf automake cmake gsed    ; fi
-  - eval "${MATRIX_EVAL}"
   - 'if [ "$TRAVIS_DIST"   = "focal" ]; then sudo apt install -y clang-11; fi'
+  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then echo $TRAVIS_OSX_IMAGE                            ; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew install wget autoconf automake cmake gsed    ; fi
+# - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew update                                       ; fi
 
 #
 before_script:
