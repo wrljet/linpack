@@ -56,9 +56,10 @@ before_install:
 before_script:
   - eval "${MATRIX_EVAL}"
   - bash -c '${CC} --version'
+  - bash -c '$CC --version'
 
 #
 script:
-  - echo ${CC}
-  - CC=${CC} make -j 2
+  - echo $CC
+  - make -j 2
 
