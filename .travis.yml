@@ -33,11 +33,13 @@ jobs:
 before_install:
   - sudo apt-get install -y regina-rexx libregina3-dev
   - sudo apt-get install -y binutils binutils-dev
-  - test $TRAVIS_DIST = "focal" && sudo apt install -y clang-11
+  - test "{$TRAVIS_DIST}" = "focal"
+  - sudo apt install -y clang-11
   - eval "${MATRIX_EVAL}"
 
 #
 before_script:
+  - eval "${MATRIX_EVAL}"
   - bash -c '${CC} --version'
 
 #
