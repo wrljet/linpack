@@ -35,11 +35,17 @@ jobs:
       dist: focal
       env: MATRIX_EVAL="CC=clang-11"
 
+    - name: "MacOS "
+      os: osx
+      osx_image: xcode12.5
+      env: MATRIX_EVAL="CC=clang"
+
 #
 before_install:
   - echo $TRAVIS_DIST
-  - sudo apt-get install -y regina-rexx libregina3-dev
-  - sudo apt-get install -y binutils binutils-dev
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y regina-rexx libregina3-dev; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y binutils binutils-dev     ; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew update                                       ; fi
   - eval "${MATRIX_EVAL}"
   - 'if [ "$TRAVIS_DIST" = "focal" ]; then sudo apt install -y clang-11; fi'
 
