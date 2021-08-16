@@ -44,7 +44,7 @@ jobs:
 before_install:
   - echo $TRAVIS_OS_NAME
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo $TRAVIS_DIST                                 ; fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo $TRAVIS_OSX_IMAGE                            ; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then echo $TRAVIS_OSX_IMAGE                            ; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y regina-rexx libregina3-dev; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y binutils binutils-dev     ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx"   ]; then brew update                                       ; fi
